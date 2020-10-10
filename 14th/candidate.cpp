@@ -46,7 +46,6 @@ void dfs(int end, int d)
     //포함하는 경우.
     
     vi.push_back(d);
-
     dfs(end,d+1);
     vi.pop_back();
 

@@ -22,12 +22,15 @@ int solution(int n, vector<int> weak, vector<int> dist) {
         }
         weak[weak.size() - 1] = tmp;
         
-        for(int it = 0; it < weak.size() ; it++)
+        while(1)
         {
-            cout << weak[it]<< " ";
+            for(int a = 0 ; a<dist.size() ; a++)
+            {
+                cout << dist[a] << " ";
+            }
+            cout << endl;
+            if(next_permutation(dist.begin(), dist.end())) break;
         }
-        cout << endl;
-
         //친구들 배치
         do {
             for(int a = 0 ; a < dist.size(); a++)
@@ -43,7 +46,7 @@ int solution(int n, vector<int> weak, vector<int> dist) {
             //친구 한명이 갈 수 있는 취약지점 까지 모두 탐색
             for (d = 0; d < dist.size(); d++) {
                 int fin = weak[w] + dist[d];
-                cout << "weak[w] = " << weak[w] << ", dist[d] = "<< dist[d]<<endl;
+                //cout << "weak[w] = " << weak[w] << ", dist[d] = "<< dist[d]<<endl;
                 while (fin >= weak[w]) {
                     w++;
                     if (w == weak.size()) {
@@ -59,7 +62,7 @@ int solution(int n, vector<int> weak, vector<int> dist) {
             if (w == weak.size()) {
                 if (answer == -1 || d + 1 < answer) {
                     answer = d + 1;
-                    cout << "answer= " << answer << endl;
+                    //cout << "answer= " << answer << endl;
                 }
             }
             
